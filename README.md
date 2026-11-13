@@ -11,13 +11,13 @@ O tema escolhido pela equipe foi sobre pessoas com deficiência (PCD)
 Divisão das funções:
 
 Desenvolvimento da documentação e escopo do site - 
-    Sophia Luvisotto Rodriguês de Sales
-    Giulia Catarina Oliveira Ber
+    Sophia Luvisotto Rodriguês de Sales,
+    Giulia Catarina Oliveira Ber,
     Nathalia Caldeira Veigar.
 
 Desenvolvimento do site - 
-    Anny Keiko Abeno Machado
-    Camila Cavalcante Nakabar (Líder do projeto)
+    Anny Keiko Abeno Machado,
+    Camila Cavalcante Nakabar (Líder do projeto).
 
 
 URL repositório:    https://github.com/Camila-nak/Pcdireitos.git
