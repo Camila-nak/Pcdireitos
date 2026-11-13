@@ -17,7 +17,7 @@ Desenvolvimento da documentação e escopo do site -
 
 Desenvolvimento do site - 
     Anny Keiko Abeno Machado,
-    Camila Cavalcante Nakabar (Líder do projeto).
+    Camila Cavalcante Nakabar (Líder do projeto). 
 
 
 URL repositório:    https://github.com/Camila-nak/Pcdireitos.git
