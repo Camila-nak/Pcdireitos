@@ -142,7 +142,7 @@ main {
     text-transform: uppercase;
 }
 
-.destaque h1 {
+.destaque h2 {
     max-width: 760px;
     margin: 0;
     font-size: clamp(43.2px, 7vw, 88px);
