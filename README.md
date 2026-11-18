@@ -24,4 +24,5 @@ URL repositório:    https://github.com/Camila-nak/Pcdireitos.git
 
 
 URL site:           https://pcdireitosn2-production.up.railway.app/html/index.html
-URL site plano B:   https://camila-nak.github.io/Pcdireitos/html/index.html
+#
+URL site plano B:   
