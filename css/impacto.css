@@ -46,18 +46,21 @@ a:hover {
     outline-offset: 4px;
 }
 
+/* ===== Cabeçalho e menu (igual em todas as páginas, modelo: Direitos) ===== */
+
 header {
     display: grid;
+    align-items: center;
     grid-template-columns: auto 1fr;
     column-gap: 24px;
-    align-items: center;
     padding: 20px clamp(20px, 3vw, 48px);
     color: var(--cor-creme);
     background: var(--cor-azul-marinho);
+    line-height: 1.6; /* fixo: o cabeçalho não muda com o body de cada página */
 }
 
-header > img[src="../imgs/logo_PCDireitos.jpg"] {
-    grid-row: span 3;   /* logo ocupa as 3 linhas */
+header > img {
+    grid-row: span 3;   
     width: 140px;
     height: auto;
     border-radius: 12px;
@@ -66,12 +69,11 @@ header > img[src="../imgs/logo_PCDireitos.jpg"] {
 header h1 {
     flex-basis: 100%;
     margin: 0;
-    font-size: clamp(1.75rem, 4vw, 2.25rem); /* Tamanho que se adapta a tela */
+    font-size: clamp(1.75rem, 4vw, 2.25rem); 
     line-height: 1.2;
 }
 
 .marca-descricao {
-    /* O ponto '.' seleciona uma classe do html onde identifica a frase */
     flex-basis: 100%;
     margin: 0;
     color: var(--cor-verde-claro);
@@ -82,9 +84,6 @@ header h1 {
 }
 
 .navegacao-principal ul {
-    /* "navegacao-principal" é onde ficam os links principais e a ul seleciona
-       a lista de links que está dentro dela */
-    /*  o flex vai organizar os itens em linha e o flex-wrap vai quebrar em outra linha quando não houver espaço*/
     display: flex;
     flex-wrap: wrap;
     gap: 5.6px 20px;
@@ -95,7 +94,7 @@ header h1 {
 
 .navegacao-principal a,
 .navegacao-principal summary {
-    /* A vírgula combina seletores */
+ 
     display: inline-block;
     padding: 7.2px 1.6px;
     color: var(--cor-creme);
@@ -106,12 +105,6 @@ header h1 {
 
 .navegacao-principal a:hover {
     color: var(--cor-verde-claro);
-}
-
-.navegacao-principal a[href="impacto.html"] {
-    color: var(--cor-verde-claro);
-    text-decoration: underline;
-    text-underline-offset: 4.8px;
 }
 
 .navegacao-principal details ul {
@@ -128,6 +121,32 @@ header h1 {
 
 .navegacao-principal details {
     position: relative;
+}
+
+.navegacao-principal a[aria-current="page"] {
+    color: var(--cor-verde-claro);
+    text-decoration: underline;
+    text-underline-offset: 4.8px;
+}
+
+@media (max-width: 420px) { header h1 {
+        font-size: 1.15rem;
+    } .marca-descricao {
+        font-size: 0.8rem;
+    } .navegacao-principal ul {
+        justify-content: center;
+        gap: 2.4px 8px;
+    } .navegacao-principal a {
+        padding: 8px 8.8px;
+        font-size: 0.85rem;
+    } }
+
+
+
+.navegacao-principal a[href="impacto.html"] {
+    color: var(--cor-verde-claro);
+    text-decoration: underline;
+    text-underline-offset: 4.8px;
 }
 
 /*main*/
@@ -846,28 +865,6 @@ footer p {
         min-width: 0;
     }
 
-    header {
-        grid-template-columns: 80px minmax(0, 1fr);
-        gap: 9.6px 24px;
-    }
-
-    header > img[src="../imgs/logo_PCDireitos.jpg"] {
-        grid-row: span 2;
-        width: 80px;
-    }
-
-    .marca-descricao {
-        margin: 0;
-    }
-
-    .navegacao-principal {
-        grid-column: 1 / -1;
-    }
-
-    .navegacao-principal ul {
-        justify-content: center;
-    }
-
     main > section:first-of-type {
         padding-top: 64px;
         padding-bottom: 64px;
@@ -948,22 +945,6 @@ footer p {
 
 /* telas de celulares menores */
 @media (max-width: 420px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-
-    .marca-descricao {
-        font-size: 0.875rem;
-    }
-
-    .navegacao-principal ul {
-        gap: 2.4px;
-    }
-
-    .navegacao-principal a {
-        padding: 8px 8.8px;
-        font-size: 0.85rem;
-    }
 
     main > section:nth-of-type(n + 2) {
         padding: 16px;

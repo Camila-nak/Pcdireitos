@@ -44,18 +44,20 @@ summary:focus-visible {
     outline-offset: 4px;
 }
 
-/* cabeçalho */
+/* ===== Cabeçalho e menu (igual em todas as páginas, modelo: Direitos) ===== */
+
 header {
     display: grid;
     align-items: center;
     grid-template-columns: auto 1fr;
     column-gap: 24px;
-    padding: 20px clamp(20px, 3vw, 48px); 
+    padding: 20px clamp(20px, 3vw, 48px);
     color: var(--cor-creme);
     background: var(--cor-azul-marinho);
+    line-height: 1.6; /* fixo: o cabeçalho não muda com o body de cada página */
 }
 
-header > img[src="../imgs/logo_PCDireitos.jpg"] {
+header > img {
     grid-row: span 3;   
     width: 140px;
     height: auto;
@@ -65,7 +67,7 @@ header > img[src="../imgs/logo_PCDireitos.jpg"] {
 header h1 {
     flex-basis: 100%;
     margin: 0;
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-size: clamp(1.75rem, 4vw, 2.25rem); 
     line-height: 1.2;
 }
 
@@ -90,6 +92,7 @@ header h1 {
 
 .navegacao-principal a,
 .navegacao-principal summary {
+ 
     display: inline-block;
     padding: 7.2px 1.6px;
     color: var(--cor-creme);
@@ -102,12 +105,6 @@ header h1 {
     color: var(--cor-verde-claro);
 }
 
-.navegacao-principal a[href="quiz.html"] {
-    color: var(--cor-verde-claro);
-    text-decoration: underline;
-    text-underline-offset: 4.8px;
-}
-
 .navegacao-principal details ul {
     position: absolute;
     z-index: 2;
@@ -117,7 +114,37 @@ header h1 {
     padding: 8px 12px;
     border-radius: 8px;
     background: var(--cor-azul-marinho);
-    box-shadow: 0 8px 24px rgb(3 25 38 / 8%);
+    box-shadow: var(--sombra-cartao);
+}
+
+.navegacao-principal details {
+    position: relative;
+}
+
+.navegacao-principal a[aria-current="page"] {
+    color: var(--cor-verde-claro);
+    text-decoration: underline;
+    text-underline-offset: 4.8px;
+}
+
+@media (max-width: 420px) { header h1 {
+        font-size: 1.15rem;
+    } .marca-descricao {
+        font-size: 0.8rem;
+    } .navegacao-principal ul {
+        justify-content: center;
+        gap: 2.4px 8px;
+    } .navegacao-principal a {
+        padding: 8px 8.8px;
+        font-size: 0.85rem;
+    } }
+
+
+
+.navegacao-principal a[href="quiz.html"] {
+    color: var(--cor-verde-claro);
+    text-decoration: underline;
+    text-underline-offset: 4.8px;
 }
 
 button.correct {
@@ -300,13 +327,6 @@ footer p {
 
 /* tela de celular */
 @media (max-width: 760px) {
-    header {
-        gap: 9.6px 16px;
-    }
-
-    .navegacao-principal ul {
-        justify-content: center;
-    }
 
     main > section:nth-of-type(4) ol {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -320,13 +340,6 @@ footer p {
 
 /* telas menores */
 @media (max-width: 420px) {
-    header h1 {
-        font-size: 1.15rem;
-    }
-
-    .marca-descricao {
-        font-size: 0.72rem;
-    }
 
     main > section:nth-of-type(3) article {
         display: block;
@@ -336,15 +349,6 @@ footer p {
 
     main > section:nth-of-type(4) ol {
         grid-template-columns: 1fr;
-    }
-
-    .navegacao-principal ul {
-        gap: 2.4px;
-    }
-
-    .navegacao-principal a {
-        padding: 8px 8.8px;
-        font-size: 0.85rem;
     }
 
     #quiz,

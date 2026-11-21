@@ -50,37 +50,40 @@ summary:focus-visible {
     outline-offset: 3px;
 }
 
-/* Cabeçalho */
+/* ===== Cabeçalho e menu (igual em todas as páginas, modelo: Direitos) ===== */
+
 header {
-    padding: 20px clamp(20px, 3vw, 48px); /*deixar mais perto da lateral*/
-    color: var(--cor-creme);
-    background: var(--cor-azul-marinho);
     display: grid;
+    align-items: center;
     grid-template-columns: auto 1fr;
     column-gap: 24px;
-    align-items: center;
+    padding: 20px clamp(20px, 3vw, 48px);
+    color: var(--cor-creme);
+    background: var(--cor-azul-marinho);
+    line-height: 1.6; /* fixo: o cabeçalho não muda com o body de cada página */
 }
 
-header > img[src="../imgs/logo_PCDireitos.jpg"] {
-    grid-row: span 3;   /* logo ocupa as 3 linhas */
+header > img {
+    grid-row: span 3;   
     width: 140px;
     height: auto;
     border-radius: 12px;
 }
 
 header h1 {
+    flex-basis: 100%;
     margin: 0;
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-size: clamp(1.75rem, 4vw, 2.25rem); 
     line-height: 1.2;
 }
 
 .marca-descricao {
-    margin: 3.2px auto 3.2px 0;
+    flex-basis: 100%;
+    margin: 0;
     color: var(--cor-verde-claro);
 }
 
 .navegacao-principal {
-    /* coloca os links de navegação em uma linha embaixo*/
     flex-basis: 100%;
 }
 
@@ -95,6 +98,7 @@ header h1 {
 
 .navegacao-principal a,
 .navegacao-principal summary {
+ 
     display: inline-block;
     padding: 7.2px 1.6px;
     color: var(--cor-creme);
@@ -103,10 +107,45 @@ header h1 {
     cursor: pointer;
 }
 
-.navegacao-principal a:hover,
-.navegacao-principal summary:hover {
+.navegacao-principal a:hover {
     color: var(--cor-verde-claro);
 }
+
+.navegacao-principal details ul {
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    gap: 2.4px;
+    min-width: 208px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: var(--cor-azul-marinho);
+    box-shadow: var(--sombra-cartao);
+}
+
+.navegacao-principal details {
+    position: relative;
+}
+
+.navegacao-principal a[aria-current="page"] {
+    color: var(--cor-verde-claro);
+    text-decoration: underline;
+    text-underline-offset: 4.8px;
+}
+
+@media (max-width: 420px) { header h1 {
+        font-size: 1.15rem;
+    } .marca-descricao {
+        font-size: 0.8rem;
+    } .navegacao-principal ul {
+        justify-content: center;
+        gap: 2.4px 8px;
+    } .navegacao-principal a {
+        padding: 8px 8.8px;
+        font-size: 0.85rem;
+    } }
+
+
 
 .navegacao-principal a[href="contato.html"] {
     color: var(--cor-verde-claro);
@@ -119,19 +158,6 @@ header h1 {
     color: var(--cor-verde-claro);
     text-decoration: underline;
     text-underline-offset: 4.8px;
-}
-
-.navegacao-principal details ul {
-    /* menu sobreposto ao cabeçalho (links secundários) */
-    position: absolute;
-    z-index: 2;
-    display: grid;
-    gap: 2.4px;
-    min-width: 208px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    background: var(--cor-azul-marinho);
-    box-shadow: 0 8px 24px rgb(3 25 38 / 18%);
 }
 
 /* Conteúdo centralizado (deixar td bonitinho) */
@@ -396,14 +422,6 @@ footer p {
 }
 
 @media (max-width: 760px) {
-    /* em telas menores, centraliza a navegação e deixa os cartões um embaixo do outro */
-    header {
-        gap: 9.6px 16px;
-    }
-
-    .navegacao-principal ul {
-        justify-content: center;
-    }
 
     main > section:last-child ul {
         grid-template-columns: 1fr;
@@ -416,24 +434,6 @@ footer p {
 }
 
 @media (max-width: 420px) {
-    /* Reduz espaçamentos e tamanhos para caber em celulares com as telas menores */
-    header h1 {
-        font-size: 1.15rem;
-    }
-
-    .marca-descricao {
-        font-size: 0.72rem;
-    }
-
-    .navegacao-principal ul {
-        gap: 2.4px;
-    }
-
-    .navegacao-principal a,
-    .navegacao-principal summary {
-        padding: 8px 6.4px;
-        font-size: 0.85rem;
-    }
 
     main > section:nth-child(2),
     main > section:nth-child(3) {
